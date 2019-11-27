@@ -33,7 +33,7 @@ $('.btn-cart').children("span").children("sup").text(cart_item_length)
     var products = [
         {
         title:"Mother Board",
-        img:"images/motherboard.jpg",
+        img:"/public/images/motherboard.jpg",
         price:"200",
         description:"Intel Z390 GAMING Motherboard with 10+2 Digital PWM Design, 2-Way CrossFire™ Multi-Graphics, USB 3.1 Gen2 Type-A, M.2 Thermal Guard, Intel GbE LAN with cFosSpeed, Smart Fan 5, Dual M.2, Dual Armor with Ultra Durable™ Technology, DualBIOS, CEC 2019"
         }
