@@ -1,5 +1,16 @@
 $('.btn-add').click(function(){
-    window.open("addnew.html","_self")
+    // window.open("addnew.html","_self")
+    $.ajax({
+        method:"GET",
+        url: '/add',
+        data: '3'
+    }).done(function(response){
+        console.log(response)
+        var cartbutton = window.open("/add", "_self");
+       // $(w.document.body).html(response);
+    }).fail(function(response){
+        console.log(response)
+    })
 })
 $('.btn-cart').click(function(){
     //window.open("cart.html","_self")
@@ -9,6 +20,8 @@ $('.btn-cart').click(function(){
         data: '3'
     }).done(function(response){
         console.log(response)
+        var cartbutton = window.open("/cart", "_self");
+       // $(w.document.body).html(response);
     }).fail(function(response){
         console.log(response)
     })
