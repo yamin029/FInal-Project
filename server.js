@@ -9,13 +9,13 @@ var path = require('path');
 app.use('/public', express.static(path.join(CURRENT_WORKING_DIR, 'public')))
 
 app.get('/',function(request,response){
-      response.sendFile(__dirname + '/index.html')
+      response.sendFile(__dirname + '/views/index.html')
 })
 app.get('/add',function(request,response){
-      response.sendFile(__dirname + '/addnew.html')
+      response.sendFile(__dirname + '/views/addnew.html')
 })
 app.get('/cart',function(request,response){
-      response.sendFile(__dirname + '/cart.html')
+      response.sendFile(__dirname + '/views/cart.html')
 })
 
 
