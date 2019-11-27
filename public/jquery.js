@@ -2,7 +2,16 @@ $('.btn-add').click(function(){
     window.open("addnew.html","_self")
 })
 $('.btn-cart').click(function(){
-    window.open("cart.html","_self")
+    //window.open("cart.html","_self")
+    $.ajax({
+        method:"GET",
+        url: '/cart',
+        data: '3'
+    }).done(function(response){
+        console.log(response)
+    }).fail(function(response){
+        console.log(response)
+    })
 })
 
 cart_items = JSON.parse(window.localStorage.getItem('cart_items'))

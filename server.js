@@ -6,6 +6,7 @@ const CURRENT_WORKING_DIR = process.cwd()
 var path = require('path');
 
 
+
 app.use('/public', express.static(path.join(CURRENT_WORKING_DIR, 'public')))
 
 app.get('/',function(request,response){
