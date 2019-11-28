@@ -4,8 +4,20 @@ var app = express();
 var server = http.Server(app);
 const CURRENT_WORKING_DIR = process.cwd()
 var path = require('path');
+var bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({extended:true}))
 
-
+var mongo = require('mongodb')
+var mongoose = require('mongoose')
+var db, uri = "mongodb+srv://yaminkhan017:@Yamin287232@cluster0-95fpq.mongodb.net/test?retryWrites=true&w=majority"
+mongoose.connect(uri, 
+      {useNewUrlParser:true, useUnifiedTopology: true })
+      mongoose.connection.on('connected', function(){
+            console.log("connected")
+      });
+  mongoose.connection.on('error', function(err){
+      console.log('Could not connect to MongoDB')
+  })
 
 app.use('/public', express.static(path.join(CURRENT_WORKING_DIR, 'public')))
 
@@ -17,6 +29,9 @@ app.get('/add',function(request,response){
 })
 app.get('/cart',function(request,response){
       response.sendFile(__dirname + '/views/cart.html')
+})
+app.get('/single',function(request,response){
+      response.sendFile(__dirname + '/views/singleview.html')
 })
 
 
