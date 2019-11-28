@@ -38,5 +38,17 @@ $('.btn-add-to-card').click(function(){
     }
     
     window.localStorage.setItem('cart_items',JSON.stringify(cart_items))
-    window.open("cart.html","_self")
+    $.ajax({
+        method:"GET",
+        url: '/cart',
+        data: '3'
+    }).done(function(response){
+        console.log(response)
+        
+        var cartbutton = window.open("/cart", "_self");
+       // $(w.document.body).html(response);
+    }).fail(function(response){
+        console.log(response)
+    })
+    //window.open("cart.html","_self")
  })
