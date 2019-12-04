@@ -34,6 +34,11 @@ app.get('/cart',function(request,response){
 app.get('/single',function(request,response){
       response.sendFile(__dirname + '/views/singleview.html')
 })
+
+app.get('/login',function(request,response){
+      response.sendFile(__dirname + '/views/login.html')
+})
+
 app.post('/submit',function(request,response){
       // response.sendFile(__dirname + '/views/singleview.html')
 })
