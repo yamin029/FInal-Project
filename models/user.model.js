@@ -5,15 +5,15 @@ var UserSchema = new Schema(
     {
        name: {
            type: String,
-           required: "Title is required"
+           required: "Name is required"
        },
        password: {
            type: String,
-           required: "Content is required"
+           required: "Password is required"
        },
        email: {
         type: Number,
-        required: "Content is required"
+        required: "Email is required"
     },
         admin: {
         type: Boolean,
