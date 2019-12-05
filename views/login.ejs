@@ -32,14 +32,14 @@
                 </select>
             </div>        
         <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+            <button type="submit" class="btn btn-primary btn-lg btn-block btn-sign-in">Sign in</button>
         </div>
 		<div class="clearfix">
             <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
             <a href="#" class="pull-right">Forgot Password?</a>
         </div>
     </form>
-    <p class="text-center small">Don't have an account? <a href="#">Sign up here!</a></p>
+    <p class="text-center small">Don't have an account? <a href="#"  class="register">Sign up here!</a></p>
 </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
@@ -55,7 +55,7 @@
 
 <script>
     var User = { name: '', password: '', email: '', admin: ''}
-    $('.btn-block').click(function () {
+    $('.btn-sign-in').click(function () {
         User.name = $("#name").val()
         User.password = $("#password").val()
         User.admin = $("#admin").val()
@@ -66,6 +66,18 @@
             data: User
         }).done(function (response) {
             console.log(response)
+        }).fail(function (response) {
+            console.log(response)
+        })
+    })
+    $('.register').click(function(){
+        $.ajax({
+            method: "GET",
+            url: '/new_user_register',
+           // data: User
+        }).done(function (response) {
+            //console.log(response)
+            window.open("/new_user_register", "_self");
         }).fail(function (response) {
             console.log(response)
         })

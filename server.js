@@ -39,6 +39,12 @@ app.get('/login',function(request,response){
       response.sendFile(__dirname + '/views/login.html')
 })
 
+app.get('/new_user_register',function(request,response){
+      response.sendFile(__dirname + '/views/register.html')
+})
+
+
+
 app.post('/submit',function(request,response){
       // response.sendFile(__dirname + '/views/singleview.html')
 })
