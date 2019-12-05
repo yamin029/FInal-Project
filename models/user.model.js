@@ -12,7 +12,7 @@ var UserSchema = new Schema(
            required: "Password is required"
        },
        email: {
-        type: Number,
+        type: String,
         required: "Email is required"
     },
         admin: {
