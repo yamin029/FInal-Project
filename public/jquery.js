@@ -110,3 +110,11 @@ $('.btn-cart').children("span").children("sup").text(cart_item_length)
     window.localStorage.setItem('cart_items',JSON.stringify(cart_items))
     location.reload(true)
  })
+
+ function openForm() {
+    document.getElementById("myForm").style.display = "block";
+  }
+  
+  function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+  }
