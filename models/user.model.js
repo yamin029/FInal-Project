@@ -1,6 +1,7 @@
 var mongoose = require('mongoose')
 var Schema = mongoose.Schema
 
+
 var UserSchema = new Schema(
     {
        name: {
@@ -13,7 +14,7 @@ var UserSchema = new Schema(
        },
        email: {
         type: String,
-        required: "Email is required"
+        required: "Email is required",
     },
         admin: {
         type: Boolean,

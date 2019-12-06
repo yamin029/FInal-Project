@@ -48,8 +48,6 @@ app.get('/',function(request,response){
 })
 
 
-
-
 app.post('/submit',function(request,response){
       // response.sendFile(__dirname + '/views/singleview.html')
 })

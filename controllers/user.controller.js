@@ -24,7 +24,7 @@ module.exports.newuser = function(request, response){
 
 
 
-  }
+}
 
   module.exports.userlogin = function(request, response){
     
@@ -34,9 +34,10 @@ module.exports.newuser = function(request, response){
           return response.status(400).json({msg: "something went wrong"})
       }
       return response.status(200).json({user:data})
-  })
+        })
+
+ 
 
 
-
-}
+    }
   
