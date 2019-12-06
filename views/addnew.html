@@ -55,7 +55,7 @@
         </div>
         <div class="form-group">
             <label>Enter product price</label>
-            <input type="number" class="form-control" id="input-price" placeholder="200$">
+            <input type="text" class="form-control" id="input-price" placeholder="200$">
         </div>
         <div class="form-group">
             <label>Enter product Description</label>
@@ -91,7 +91,8 @@
           product.image = $('#input-url').val()
             // article.title = $("#name").val()
                // article.content = $("#price").val()
-               console.log(product)
+               //console.log($.type(product.))
+               
             $.ajax({
                 method: "POST",
                 url: '/new_product',

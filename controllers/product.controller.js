@@ -41,7 +41,7 @@ module.exports.home = function(request, response){
             // console.log(err)
             return response.status(400).json({msg: "something went wrong"})
         }
-        return response.render('login.ejs', {products:data})
+        return response.render('index.ejs', {products:data})
     })
    // Products.push(request.body)
    // console.log(Products)

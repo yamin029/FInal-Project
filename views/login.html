@@ -59,10 +59,10 @@
         User.name = $("#name").val()
         User.password = $("#password").val()
         User.admin = $("#admin").val()
-        console.log(User)
+        //console.log(User)
         $.ajax({
             method: "POST",
-            url: '/new_user',
+            url: '/user_login',
             data: User
         }).done(function (response) {
             console.log(response)

@@ -12,7 +12,7 @@ var ProductSchema = new Schema(
            required: "Content is required"
        },
        quantity: {
-        type: Number,
+        type: String,
         required: "Content is required"
     },
         description: {

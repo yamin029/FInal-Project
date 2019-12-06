@@ -43,6 +43,11 @@ app.get('/new_user_register',function(request,response){
       response.sendFile(__dirname + '/views/register.html')
 })
 
+app.get('/',function(request,response){
+      response.sendFile(__dirname + '/views/login.html')
+})
+
+
 
 
 app.post('/submit',function(request,response){
@@ -50,6 +55,7 @@ app.post('/submit',function(request,response){
 })
 
 require('./routes/product.routes')(app)
+require('./routes/user.routes')(app)
 
 server.listen(3000,'localhost',function(){
       console.log('server running ...')
