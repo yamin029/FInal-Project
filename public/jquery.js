@@ -6,7 +6,7 @@ $('.home-link').click(function(){
         data: '3'
     }).done(function(response){
         console.log(response)
-        var cartbutton = window.open("/", "_self");
+        var cartbutton = window.open("/home", "_self");
        // $(w.document.body).html(response);
     }).fail(function(response){
         console.log(response)
@@ -22,7 +22,7 @@ $('.btn-add').click(function(){
         data: '3'
     }).done(function(response){
         //console.log(response)
-        window.open("/addnew.html","_self")
+        window.open("/add","_self")
     }).fail(function(response){
         console.log(response)
     })
@@ -34,7 +34,7 @@ $('.btn-cart').click(function(){
         url: '/cart',
         data: '3'
     }).done(function(response){
-        console.log(response)
+        window.open("/cart","_self")
     }).fail(function(response){
         console.log(response)
     })
@@ -90,7 +90,7 @@ $('.btn-cart').children("span").children("sup").text(cart_item_length)
         ]
         window.localStorage.setItem('products',JSON.stringify(products))
     }
-    
+    window.localStorage.setItem('products',JSON.stringify(products))
     $.each(products,function(i,val){
         var insertproduct = $('<div class="card shadow-lg border-success m-3 d-flex justify-content-center" style="width: 18rem;"><img src="" class="card-img-top" alt="..."><div class="card-body "><h5 class="card-title"></h5><p class="card-text"></p><div class="container-fluid row "><div class="container col-md-6"><p></p></div><button class="btn btn-outline-primary col-md-6 d-blo btn-add-to-card">Add to Cart</button></div></div></div>')
         insertproduct.children("img").attr('src',products[i].image)
