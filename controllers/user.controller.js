@@ -1,7 +1,11 @@
 var User = require('./../models/user.model')
 
+module.exports.index = function(request, response){
+    response.render('index.ejs')
+}
+
 module.exports.newuser = function(request, response){
-      //save(request.body)
+      save(request.body)
       console.log(request.body)
       let user = new User(request.body)
       user.save(function(err, data){
@@ -26,18 +30,21 @@ module.exports.newuser = function(request, response){
 
 }
 
-  module.exports.userlogin = function(request, response){
-    
-     User.find(function(err, data){
+module.exports.userlogin = function(request, response){
+    let logincred = new User(request.body)
+    console.log(logincred)
+    User.find(function(err, data){
       if(err){
-          // console.log(err)
+          console.log(err)
           return response.status(400).json({msg: "something went wrong"})
       }
-      return response.status(200).json({user:data})
+      
+        return response.status(200).json({user:data})
         })
 
- 
-
-
     }
+
+
+
+
   

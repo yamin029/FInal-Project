@@ -20,15 +20,17 @@
 		</div>
         <h2 class="text-center">Login</h2>   
         <div class="form-group">
-        	<input id= "name" type="text" class="form-control" name="username" placeholder="Username" required="required">
+        	<input  type="text" class="form-control" id= "login-name" name="username" placeholder="Username" required="required">
         </div>
 		<div class="form-group">
-            <input id= "password" type="password" class="form-control" name="password" placeholder="Password" required="required">
+            <input  type="password" class="form-control" id= "login-password" name="password" placeholder="Password" required="required">
         </div>
         <div class="form-group">
-                <select id= "admin" class="form-control" name="username" placeholder="Admin" required="required">
-                <option class="form-control" value="User">User</option>
-                <option class="form-control" value="Admin">Admin</option>
+            <select class="form-control" id="login-admin">
+                <option selected>Please Select Admin/User</option>
+                <option value="1">Admin</option>
+                <option value="2">Customer</option>
+              </select>
                 </select>
             </div>        
         <div class="form-group">
@@ -54,25 +56,33 @@
 
 
 <script>
-    var User = { name: '', password: '', email: '', admin: ''}
+    var loginUser = { name: '', password: '', admin: ''}
+      
     $('.btn-sign-in').click(function () {
-        User.name = $("#name").val()
-        User.password = $("#password").val()
-        User.admin = $("#admin").val()
-        //console.log(User)
+        loginUser.name = $('#login-name').val()
+        loginUser.password = $('#login-password').val()
+        if ($('#login-admin').val() == '1') {
+            loginUser.admin = true
+        } else {
+            loginUser.admin = false
+        }
+        // console.log(loginUser)
         $.ajax({
             method: "POST",
             url: '/user_login',
-            data: User
+            data: loginUser
         }).done(function (response) {
             console.log(response)
-
-          
+            console.log(loginUser.name)
+         
             
         }).fail(function (response) {
-            console.log(response)
+            // console.log(response)
         })
+        
     })
+
+
     $('.register').click(function(){
         $.ajax({
             method: "GET",
