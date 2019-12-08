@@ -62,14 +62,14 @@
             User.name = $("#name").val()
             User.password = $("#password").val()
             User.admin = $("#admin").val()
-            //console.log(User)
+            console.log(User)
             $.ajax({
                 method: "GET",
                 url: '/user_login',
                 data: User
             }).done(function (response) {
-                //window.localStorage.setItem('users',JSON.stringify(response))
-                //var users = JSON.parse(window.localStorage.getItem('users'))
+                // window.localStorage.setItem('users',JSON.stringify(response.user))
+                // var getuser = JSON.parse(window.localStorage.getItem('users'))
                 //$.each(cart_items,function(i,val){ 
                 // $.ajax({
                 //     method: "GET",
@@ -83,7 +83,18 @@
                 //     console.log(response)
                 // })
                 //ya = JSON.stringify(response.User[0])
-                console.log((response.user)[0].name)
+                //console.log((response.user))
+                var getuser = response.user
+                console.log(getuser)
+                 $.each(getuser,function(i,val){
+                     console.log(User.password)
+                     if(getuser[i].name == User.name)
+                     {
+                        window.open("/home", "_self")
+                     }
+                 })
+                
+
                 
  
             }).fail(function (response) {

@@ -27,9 +27,9 @@ module.exports.newuser = function(request, response){
   }
 
   module.exports.userlogin = function(request, response){
-    //console.log(request.body)
-     User.find({name:'yamin'},function(err, data){
-    //db.User.find({name: 'moon'}),function(err,data){
+    //console.log(response)
+     //User.find({name:'yamin'},function(err, data){
+    User.find(function(err,data){
      if(err){
           // console.log(err)
           return response.status(400).json({msg: "something went wrong"})
