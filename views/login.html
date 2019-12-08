@@ -14,7 +14,7 @@
 </head>
 <body>
 <div class="login-form">
-    <form action="#" method="post">
+    
 		<div class="avatar">
 			<img src="https://cdn3.iconfinder.com/data/icons/people-avatar/30/superhero-512.png" alt="Avatar">
 		</div>
@@ -23,12 +23,12 @@
         	<input id= "name" type="text" class="form-control" name="username" placeholder="Username" required="required">
         </div>
 		<div class="form-group">
-            <input id= "password" type="password" class="form-control" name="password" placeholder="Password" required="required">
+            <input id= "password" type="text" class="form-control" name="password" placeholder="Password" required="required">
         </div>
         <div class="form-group">
                 <select id= "admin" class="form-control" name="username" placeholder="Admin" required="required">
-                <option class="form-control" value="User">User</option>
-                <option class="form-control" value="Admin">Admin</option>
+                <option class="form-control" value='0'>User</option>
+                <option class="form-control" value='1'>Admin</option>
                 </select>
             </div>        
         <div class="form-group">
@@ -38,7 +38,7 @@
             <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
             <a href="#" class="pull-right">Forgot Password?</a>
         </div>
-    </form>
+    
     <p class="text-center small">Don't have an account? <a href="#"  class="register">Sign up here!</a></p>
 </div>
 </div>
@@ -87,10 +87,14 @@
                 var getuser = response.user
                 console.log(getuser)
                  $.each(getuser,function(i,val){
-                     console.log(User.password)
+                     //console.log(User.password)
                      if(getuser[i].name == User.name)
                      {
-                        window.open("/home", "_self")
+                         if(getuser[i].password == User.password && getuser[i].admin == User.admin){
+                            window.open("/home", "_self")
+
+                         }
+                        
                      }
                  })
                 
