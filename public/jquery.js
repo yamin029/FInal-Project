@@ -160,3 +160,10 @@ var cart_items = []
 //      window.open('index.html',"_self")
 //  })
  
+ function openForm() {
+    document.getElementById("myForm").style.display = "block";
+  }
+  
+  function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+  }
