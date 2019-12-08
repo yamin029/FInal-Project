@@ -9,7 +9,7 @@ module.exports.newuser = function(request, response){
               // console.log(err)
               return response.status(400).json({msg: "All fields are required"})
           }
-          return response.status(200).json({product:data})
+          return response.status(200).json({user:data})
       })
      //User.push(request.body)
      //console.log(Products)
@@ -27,9 +27,10 @@ module.exports.newuser = function(request, response){
   }
 
   module.exports.userlogin = function(request, response){
-    
-     User.find(function(err, data){
-      if(err){
+    //console.log(request.body)
+     User.find({name:'yamin'},function(err, data){
+    //db.User.find({name: 'moon'}),function(err,data){
+     if(err){
           // console.log(err)
           return response.status(400).json({msg: "something went wrong"})
       }
