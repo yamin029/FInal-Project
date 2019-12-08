@@ -13,7 +13,7 @@ module.exports.newuser = function(request, response){
               // console.log(err)
               return response.status(400).json({msg: "All fields are required"})
           }
-          return response.status(200).json({product:data})
+          return response.status(200).json({user:data})
       })
      //User.push(request.body)
      //console.log(Products)
@@ -30,12 +30,12 @@ module.exports.newuser = function(request, response){
 
 }
 
-module.exports.userlogin = function(request, response){
-    let logincred = new User(request.body)
-    console.log(logincred)
-    User.find(function(err, data){
-      if(err){
-          console.log(err)
+  module.exports.userlogin = function(request, response){
+    //console.log(response)
+     //User.find({name:'yamin'},function(err, data){
+    User.find(function(err,data){
+     if(err){
+          // console.log(err)
           return response.status(400).json({msg: "something went wrong"})
       }
       

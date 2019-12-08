@@ -67,7 +67,7 @@
       </div>
         
         <button type="submit" class="btn btn-primary btn-submit-add-new-product">Submit</button>
-        <button type="submit" class="btn btn-primary btn-submit-add-new-product-view">View</button>
+        <!-- <button type="submit" class="btn btn-primary btn-submit-add-new-product-view">View</button> -->
 
       
     </div>
@@ -103,6 +103,23 @@
                 console.log(response)
             })
         })
+
+
+        $('.home-link').click(function(){
+    // window.open("addnew.html","_self")
+    $.ajax({
+        method:"GET",
+        url: '/',
+        data: '3'
+    }).done(function(response){
+        console.log(response)
+        var cartbutton = window.open("/home", "_self");
+       // $(w.document.body).html(response);
+    }).fail(function(response){
+        console.log(response)
+    })
+})
+
         </script>
 
 

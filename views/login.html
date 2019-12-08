@@ -14,7 +14,7 @@
 </head>
 <body>
 <div class="login-form">
-    <form action="#" method="post">
+    
 		<div class="avatar">
 			<img src="https://cdn3.iconfinder.com/data/icons/people-avatar/30/superhero-512.png" alt="Avatar">
 		</div>
@@ -23,24 +23,22 @@
         	<input  type="text" class="form-control" id= "login-name" name="username" placeholder="Username" required="required">
         </div>
 		<div class="form-group">
-            <input  type="password" class="form-control" id= "login-password" name="password" placeholder="Password" required="required">
+            <input id= "password" type="text" class="form-control" name="password" placeholder="Password" required="required">
         </div>
         <div class="form-group">
-            <select class="form-control" id="login-admin">
-                <option selected>Please Select Admin/User</option>
-                <option value="1">Admin</option>
-                <option value="2">Customer</option>
-              </select>
+                <select id= "admin" class="form-control" name="username" placeholder="Admin" required="required">
+                <option class="form-control" value='0'>User</option>
+                <option class="form-control" value='1'>Admin</option>
                 </select>
             </div>        
         <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-lg btn-block btn-sign-in">Sign in</button>
+            <button  class="btn btn-primary btn-lg btn-block btn-sign-in">Sign in</button>
         </div>
 		<div class="clearfix">
             <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
             <a href="#" class="pull-right">Forgot Password?</a>
         </div>
-    </form>
+    
     <p class="text-center small">Don't have an account? <a href="#"  class="register">Sign up here!</a></p>
 </div>
 </div>
@@ -56,33 +54,58 @@
 
 
 <script>
-    var loginUser = { name: '', password: '', admin: ''}
-      
-    $('.btn-sign-in').click(function () {
-        loginUser.name = $('#login-name').val()
-        loginUser.password = $('#login-password').val()
-        if ($('#login-admin').val() == '1') {
-            loginUser.admin = true
-        } else {
-            loginUser.admin = false
-        }
-        // console.log(loginUser)
-        $.ajax({
-            method: "POST",
-            url: '/user_login',
-            data: loginUser
-        }).done(function (response) {
-            console.log(response)
-            console.log(loginUser.name)
-         
-            
-        }).fail(function (response) {
-            // console.log(response)
+
+
+        $('.btn-sign-in').click(function () {
+            var User = { name: '', password: '', email: '', admin: ''}
+
+            User.name = $("#name").val()
+            User.password = $("#password").val()
+            User.admin = $("#admin").val()
+            console.log(User)
+            $.ajax({
+                method: "GET",
+                url: '/user_login',
+                data: User
+            }).done(function (response) {
+                // window.localStorage.setItem('users',JSON.stringify(response.user))
+                // var getuser = JSON.parse(window.localStorage.getItem('users'))
+                //$.each(cart_items,function(i,val){ 
+                // $.ajax({
+                //     method: "GET",
+                //     url: '/',
+                //     data: '3'
+                // }).done(function (response) {
+                //     console.log(response)
+                //     var cartbutton = window.open("/home", "_self");
+                //     // $(w.document.body).html(response);
+                // }).fail(function (response) {
+                //     console.log(response)
+                // })
+                //ya = JSON.stringify(response.User[0])
+                //console.log((response.user))
+                var getuser = response.user
+                console.log(getuser)
+                 $.each(getuser,function(i,val){
+                     //console.log(User.password)
+                     if(getuser[i].name == User.name)
+                     {
+                         if(getuser[i].password == User.password && getuser[i].admin == User.admin){
+                            window.open("/home", "_self")
+
+                         }
+                        
+                     }
+                 })
+                
+
+                
+ 
+            }).fail(function (response) {
+                console.log(response)
+            })
+
         })
-        
-    })
-
-
     $('.register').click(function(){
         $.ajax({
             method: "GET",
