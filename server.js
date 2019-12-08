@@ -2,6 +2,7 @@ var http = require('http');
 var express = require('express');
 var app = express();
 var server = http.Server(app);
+var io = require('socket.io')(server);
 const CURRENT_WORKING_DIR = process.cwd()
 var path = require('path');
 var bodyParser = require('body-parser')
@@ -56,6 +57,15 @@ app.post('/submit',function(request,response){
 
 require('./routes/product.routes')(app)
 require('./routes/user.routes')(app)
+io.on('connection', function(socket){
+      socket.on('chat message', function(msg){
+        io.emit('chat message', msg);
+      });
+    });
+
+io.on('disconnection',()=>{
+      socket.broadcast.emit('user-disconnected'); 
+    });
 
 server.listen(3000,'localhost',function(){
       console.log('server running ...')
