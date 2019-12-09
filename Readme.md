@@ -25,7 +25,7 @@ Install Node.js and MongoDB on your computer
 
 Download this code, and from command prompt run:
 
-npm install
+npm install express
 
 npm socket.io install
 
